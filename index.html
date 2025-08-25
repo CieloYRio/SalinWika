@@ -15,7 +15,7 @@
         
         body {
             font-family: 'Nunito', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, #3498DB 0%, #1ABC9C 50%, #F1C40F 100%);
             min-height: 100vh;
             color: #2d3748;
             overflow-x: hidden;
@@ -40,7 +40,7 @@
         .shape:nth-child(1) {
             width: 80px;
             height: 80px;
-            background: rgba(255, 107, 107, 0.3);
+            background: rgba(241, 196, 15, 0.3);
             top: 10%;
             left: 10%;
             animation-delay: 0s;
@@ -49,7 +49,7 @@
         .shape:nth-child(2) {
             width: 60px;
             height: 60px;
-            background: rgba(54, 215, 183, 0.3);
+            background: rgba(26, 188, 156, 0.3);
             top: 20%;
             right: 10%;
             animation-delay: 2s;
@@ -58,7 +58,7 @@
         .shape:nth-child(3) {
             width: 100px;
             height: 100px;
-            background: rgba(255, 206, 84, 0.3);
+            background: rgba(193, 154, 107, 0.3);
             bottom: 20%;
             left: 5%;
             animation-delay: 4s;
@@ -79,38 +79,39 @@
         
         .header {
             text-align: center;
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            background: linear-gradient(135deg, #FEF9F3 0%, #ffffff 100%);
             padding: 40px;
             border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 60px rgba(193, 154, 107, 0.2);
             margin-bottom: 30px;
-            border: 3px solid rgba(255,255,255,0.3);
+            border: 3px solid #C19A6B;
             backdrop-filter: blur(10px);
         }
         
         .header h1 {
-            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            background: linear-gradient(135deg, #F1C40F, #C19A6B, #1ABC9C);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-size: 3.5rem;
             font-weight: 900;
             margin-bottom: 15px;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-shadow: 0 4px 8px rgba(193, 154, 107, 0.3);
         }
         
         .header p {
-            color: #64748b;
+            color: #C19A6B;
             font-size: 1.3rem;
-            font-weight: 500;
+            font-weight: 600;
         }
         
         .lesson-selector {
-            background: rgba(255,255,255,0.9);
+            background: linear-gradient(135deg, #FEF9F3 0%, #ffffff 100%);
             border-radius: 25px;
             padding: 30px;
             margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 40px rgba(193, 154, 107, 0.15);
+            border: 2px solid #D8BFAA;
         }
         
         .lesson-grid {
@@ -121,24 +122,27 @@
         }
         
         .lesson-card {
-            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            background: linear-gradient(135deg, #ffffff, #FEF9F3);
             border-radius: 20px;
             padding: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 3px solid transparent;
+            border: 3px solid #E5E5E5;
             text-align: center;
+            box-shadow: 0 8px 25px rgba(193, 154, 107, 0.1);
         }
         
         .lesson-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(241, 196, 15, 0.2);
+            border-color: #FFE066;
         }
         
         .lesson-card.active {
-            border-color: #667eea;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-color: #F1C40F;
+            background: linear-gradient(135deg, #F1C40F, #FFE066);
             color: white;
+            box-shadow: 0 15px 40px rgba(241, 196, 15, 0.4);
         }
         
         .lesson-emoji {
@@ -158,11 +162,12 @@
         }
         
         .progress-bar {
-            background: rgba(255,255,255,0.9);
+            background: linear-gradient(135deg, #FEF9F3, #ffffff);
             border-radius: 25px;
             padding: 20px;
             margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(193, 154, 107, 0.15);
+            border: 2px solid #D8BFAA;
         }
         
         .progress-info {
@@ -175,7 +180,7 @@
         .lesson-title {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #4a5568;
+            color: #C19A6B;
         }
         
         .stars {
@@ -185,7 +190,7 @@
         
         .star {
             font-size: 1.5rem;
-            color: #ffd700;
+            color: #E74C3C;
             animation: sparkle 2s ease-in-out infinite;
         }
         
@@ -195,14 +200,14 @@
         }
         
         .progress-track {
-            background: #e2e8f0;
+            background: #E5E5E5;
             height: 12px;
             border-radius: 10px;
             overflow: hidden;
         }
         
         .progress-fill {
-            background: linear-gradient(90deg, #48bb78, #38a169);
+            background: linear-gradient(90deg, #2ECC71, #1ABC9C);
             height: 100%;
             border-radius: 10px;
             transition: width 0.5s ease;
@@ -218,37 +223,46 @@
         
         .lesson-step {
             padding: 15px 25px;
-            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-            border: none;
+            background: linear-gradient(135deg, #FEF9F3, #E5E5E5);
+            border: 2px solid #D8BFAA;
             border-radius: 20px;
             cursor: pointer;
             font-weight: 700;
             font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 20px rgba(193, 154, 107, 0.15);
             position: relative;
             overflow: hidden;
+            color: #C19A6B;
+        }
+        
+        .lesson-step:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(241, 196, 15, 0.3);
+            border-color: #F1C40F;
         }
         
         .lesson-step.active {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1ABC9C, #4DD0E1);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 12px 35px rgba(26, 188, 156, 0.4);
+            border-color: #1ABC9C;
         }
         
         .lesson-step.completed {
-            background: linear-gradient(135deg, #48bb78, #38a169);
+            background: linear-gradient(135deg, #2ECC71, #1ABC9C);
             color: white;
+            border-color: #2ECC71;
         }
         
         .lesson-content {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            background: linear-gradient(135deg, #FEF9F3 0%, #ffffff 100%);
             border-radius: 25px;
             padding: 40px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 40px rgba(193, 154, 107, 0.1);
             margin-bottom: 25px;
-            border: 2px solid rgba(255,255,255,0.5);
+            border: 2px solid #D8BFAA;
             min-height: 500px;
         }
         
@@ -290,7 +304,7 @@
         
         .intro-text {
             font-size: 1.4rem;
-            color: #4a5568;
+            color: #C19A6B;
             line-height: 1.8;
             margin: 20px 0;
             font-weight: 500;
@@ -304,19 +318,20 @@
         }
         
         .vocab-card {
-            background: white;
+            background: linear-gradient(135deg, #ffffff, #FEF9F3);
             border-radius: 20px;
             padding: 25px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(193, 154, 107, 0.1);
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 3px solid transparent;
+            border: 3px solid #D8BFAA;
         }
         
         .vocab-card:hover {
             transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 50px rgba(26, 188, 156, 0.2);
+            border-color: #1ABC9C;
         }
         
         .vocab-emoji {
@@ -328,18 +343,18 @@
             font-size: 1.3rem;
             font-weight: 700;
             margin: 10px 0;
-            color: #2d3748;
+            color: #C19A6B;
         }
         
         .vocab-filipino {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #667eea;
+            color: #1ABC9C;
             margin-bottom: 15px;
         }
         
         .play-sound {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            background: linear-gradient(135deg, #F1C40F, #FFE066);
             color: white;
             border: none;
             padding: 10px 20px;
@@ -347,26 +362,29 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
         }
         
         .play-sound:hover {
             transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 8px 25px rgba(241, 196, 15, 0.5);
+            background: linear-gradient(135deg, #FFE066, #F1C40F);
         }
         
         .game-area {
-            background: linear-gradient(135deg, #f8f9ff, #e8f4fd);
+            background: linear-gradient(135deg, #FEF9F3, #7EC8E3);
             border-radius: 20px;
             padding: 30px;
             margin: 20px 0;
-            border: 2px dashed #667eea;
+            border: 3px dashed #3498DB;
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.15);
         }
         
         .game-question {
             font-size: 1.8rem;
             font-weight: 700;
             text-align: center;
-            color: #4a5568;
+            color: #C19A6B;
             margin-bottom: 25px;
         }
         
@@ -382,17 +400,20 @@
             border-radius: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 3px solid transparent;
-            background: white;
+            border: 3px solid #D8BFAA;
+            background: linear-gradient(135deg, #ffffff, #FEF9F3);
             text-align: center;
             min-width: 120px;
             font-size: 1.2rem;
             font-weight: 600;
+            color: #C19A6B;
+            box-shadow: 0 6px 20px rgba(193, 154, 107, 0.1);
         }
         
         .game-option:hover {
             transform: scale(1.1);
-            border-color: #667eea;
+            border-color: #1ABC9C;
+            box-shadow: 0 10px 30px rgba(26, 188, 156, 0.2);
         }
         
         .phrases-section {
@@ -400,58 +421,62 @@
         }
         
         .phrase-card {
-            background: white;
+            background: linear-gradient(135deg, #ffffff, #FEF9F3);
             border-radius: 15px;
             padding: 20px;
             margin: 15px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-left: 5px solid #667eea;
+            box-shadow: 0 8px 25px rgba(193, 154, 107, 0.1);
+            border-left: 5px solid #1ABC9C;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         
         .phrase-card:hover {
             transform: translateX(10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 12px 35px rgba(26, 188, 156, 0.2);
+            border-left-color: #F1C40F;
         }
         
         .phrase-english {
             font-size: 1.2rem;
-            color: #4a5568;
+            color: #C19A6B;
             margin-bottom: 8px;
         }
         
         .phrase-filipino {
             font-size: 1.4rem;
             font-weight: 700;
-            color: #2d3748;
+            color: #1ABC9C;
         }
         
         .song-section {
-            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            background: linear-gradient(135deg, #F1C40F, #FFE066);
             border-radius: 20px;
             padding: 30px;
             text-align: center;
             margin: 20px 0;
+            box-shadow: 0 15px 40px rgba(241, 196, 15, 0.3);
         }
         
         .song-title {
             font-size: 2rem;
             font-weight: 800;
-            color: #2d3748;
+            color: white;
             margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(193, 154, 107, 0.5);
         }
         
         .song-lyrics {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #4a5568;
+            color: white;
             line-height: 2;
             margin: 20px 0;
+            text-shadow: 0 1px 3px rgba(193, 154, 107, 0.3);
         }
         
         .play-song {
-            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+            background: linear-gradient(135deg, #1ABC9C, #4DD0E1);
             color: white;
             border: none;
             padding: 15px 30px;
@@ -460,29 +485,31 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(26, 188, 156, 0.4);
         }
         
         .play-song:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(108, 92, 231, 0.4);
+            box-shadow: 0 15px 40px rgba(26, 188, 156, 0.5);
         }
         
         .parent-guide {
-            background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+            background: linear-gradient(135deg, #2ECC71, rgba(46, 204, 113, 0.1));
             border-radius: 20px;
             padding: 25px;
             margin: 30px 0;
-            border-left: 5px solid #48bb78;
+            border-left: 5px solid #2ECC71;
+            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.15);
         }
         
         .parent-guide h3 {
-            color: #2d5016;
+            color: #2ECC71;
             margin-bottom: 15px;
             font-size: 1.4rem;
         }
         
         .parent-guide p {
-            color: #4a5568;
+            color: #C19A6B;
             line-height: 1.6;
             margin-bottom: 10px;
         }
@@ -501,27 +528,66 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
         
         .prev-btn {
-            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            background: linear-gradient(135deg, #3498DB, #7EC8E3);
             color: white;
         }
         
         .next-btn {
-            background: linear-gradient(135deg, #00b894, #00a085);
+            background: linear-gradient(135deg, #2ECC71, #1ABC9C);
             color: white;
         }
         
         .nav-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
         }
         
         .nav-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
             transform: none;
+        }
+        
+        .practice-button {
+            background: linear-gradient(135deg, #E74C3C, #C0392B);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
+        }
+        
+        .practice-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.4);
+        }
+        
+        .memory-boost {
+            background: linear-gradient(135deg, #F1C40F, rgba(255, 224, 102, 0.3));
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 2px solid #FFE066;
+            box-shadow: 0 10px 30px rgba(241, 196, 15, 0.2);
+        }
+        
+        .memory-boost h3 {
+            color: #C19A6B;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .memory-boost p {
+            color: #C19A6B;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
         
         @media (max-width: 768px) {
@@ -557,7 +623,7 @@
         </div>
         
         <div class="lesson-selector">
-            <h2 style="text-align: center; margin-bottom: 20px; font-size: 2rem; color: #4a5568;">Choose Your Lesson</h2>
+            <h2 style="text-align: center; margin-bottom: 20px; font-size: 2rem; color: #C19A6B;">Choose Your Lesson</h2>
             <div class="lesson-grid">
                 <div class="lesson-card active" onclick="selectLesson(1)">
                     <div class="lesson-emoji">🌈</div>
@@ -886,7 +952,7 @@
                 
                 <!-- Step 2: Vocabulary -->
                 <div class="step-content" id="step-2">
-                    <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5rem; color: #4a5568;">📚 Learn New Words</h2>
+                    <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5rem; color: #C19A6B;">📚 Learn New Words</h2>
                     <div class="vocabulary-grid">
                         ${lesson.vocabulary.map(item => `
                             <div class="vocab-card" onclick="playVocabSound('${item.filipino}')">
@@ -913,14 +979,14 @@
                         </div>
                         <div style="text-align: center; margin-top: 20px;">
                             <div id="game-feedback" style="font-size: 1.5rem; font-weight: 700; margin: 15px 0;"></div>
-                            <div id="game-score">Score: <span id="score">0</span>/5</div>
+                            <div id="game-score" style="color: #C19A6B;">Score: <span id="score">0</span>/5</div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Step 4: Phrases -->
                 <div class="step-content" id="step-4">
-                    <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5rem; color: #4a5568;">💬 Useful Phrases</h2>
+                    <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5rem; color: #C19A6B;">💬 Useful Phrases</h2>
                     
                     <div class="parent-guide">
                         <h3>👨‍👩‍👧‍👦 Parent Guide</h3>
@@ -950,14 +1016,12 @@
                 
                 <!-- Step 6: Review -->
                 <div class="step-content" id="step-6">
-                    <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5rem; color: #4a5568;">🏆 Practice & Review</h2>
+                    <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5rem; color: #C19A6B;">🏆 Practice & Review</h2>
                     
-                    <div style="background: linear-gradient(135deg, #fff3cd, #ffeaa7); border-radius: 20px; padding: 25px; margin-bottom: 30px;">
-                        <h3 style="color: #856404; margin-bottom: 15px; font-size: 1.4rem;">🧠 Memory Boost</h3>
-                        <p style="color: #6c5700; line-height: 1.6; margin-bottom: 15px;">
-                            Practice these words every day for 5 minutes. Repetition helps you remember better!
-                        </p>
-                        <button onclick="startSpacedPractice()" style="background: linear-gradient(135deg, #f39c12, #e67e22); color: white; border: none; padding: 12px 25px; border-radius: 15px; font-weight: 600; cursor: pointer;">
+                    <div class="memory-boost">
+                        <h3>🧠 Memory Boost</h3>
+                        <p>Practice these words every day for 5 minutes. Repetition helps you remember better!</p>
+                        <button onclick="startSpacedPractice()" class="practice-button">
                             🔄 Start Practice Session
                         </button>
                     </div>
@@ -973,9 +1037,9 @@
                     
                     <div style="text-align: center; margin-top: 30px;">
                         <div style="font-size: 2rem; margin: 20px 0;">🎉 Congratulations! 🎉</div>
-                        <div style="font-size: 1.3rem; color: #4a5568;">You've completed ${lesson.title}!</div>
+                        <div style="font-size: 1.3rem; color: #C19A6B;">You've completed ${lesson.title}!</div>
                         <div style="margin: 20px 0;">
-                            <span style="font-size: 2rem;">⭐⭐⭐⭐⭐</span>
+                            <span style="font-size: 2rem; color: #E74C3C;">⭐⭐⭐⭐⭐</span>
                         </div>
                     </div>
                 </div>
@@ -1046,7 +1110,7 @@
         function playIntroAudio() {
             const button = event.target;
             button.textContent = "🔊 Playing...";
-            button.style.background = "linear-gradient(135deg, #48bb78, #38a169)";
+            button.style.background = "linear-gradient(135deg, #2ECC71, #1ABC9C)";
             
             const lesson = lessons[currentLesson];
             const introText = `Welcome to ${lesson.title}! Let's learn together and have fun!`;
@@ -1054,7 +1118,7 @@
             if (speakText(introText, 'en-US')) {
                 setTimeout(() => {
                     button.textContent = "🔊 Listen to Introduction";
-                    button.style.background = "linear-gradient(135deg, #ff6b6b, #ee5a52)";
+                    button.style.background = "linear-gradient(135deg, #F1C40F, #FFE066)";
                 }, 5000);
             }
         }
@@ -1063,20 +1127,20 @@
             const card = event.currentTarget;
             const originalTransform = card.style.transform;
             card.style.transform = "scale(1.1)";
-            card.style.boxShadow = "0 25px 60px rgba(0,0,0,0.2)";
+            card.style.boxShadow = "0 25px 60px rgba(26, 188, 156, 0.3)";
             
             speakText(word);
             
             setTimeout(() => {
                 card.style.transform = originalTransform;
-                card.style.boxShadow = "0 10px 30px rgba(0,0,0,0.1)";
+                card.style.boxShadow = "0 10px 30px rgba(193, 154, 107, 0.1)";
             }, 500);
         }
         
         function selectGameAnswer(answer) {
             const feedback = document.getElementById('game-feedback');
             feedback.textContent = "🎉 Great job!";
-            feedback.style.color = "#48bb78";
+            feedback.style.color = "#2ECC71";
             
             speakText(answer);
         }
@@ -1084,7 +1148,7 @@
         function playSong() {
             const button = event.target;
             button.textContent = "🎵 Playing...";
-            button.style.background = "linear-gradient(135deg, #48bb78, #38a169)";
+            button.style.background = "linear-gradient(135deg, #2ECC71, #1ABC9C)";
             
             const lesson = lessons[currentLesson];
             const songText = lesson.song.lyrics.replace(/<br>/g, ' ');
@@ -1092,7 +1156,7 @@
             
             setTimeout(() => {
                 button.textContent = "🎵 Play Song";
-                button.style.background = "linear-gradient(135deg, #a29bfe, #6c5ce7)";
+                button.style.background = "linear-gradient(135deg, #1ABC9C, #4DD0E1)";
             }, 8000);
         }
         
@@ -1120,11 +1184,11 @@
             function practiceNext() {
                 if (index >= practiceWords.length) {
                     button.textContent = "✅ Practice Complete!";
-                    button.style.background = "linear-gradient(135deg, #48bb78, #38a169)";
+                    button.style.background = "linear-gradient(135deg, #2ECC71, #1ABC9C)";
                     
                     setTimeout(() => {
                         button.textContent = "🔄 Start Practice Session";
-                        button.style.background = "linear-gradient(135deg, #f39c12, #e67e22)";
+                        button.style.background = "linear-gradient(135deg, #E74C3C, #C0392B)";
                         button.disabled = false;
                     }, 3000);
                     return;
@@ -1151,5 +1215,5 @@
             };
         }
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974b8f55e1e6f445',t:'MTc1NjEyOTg0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974bbfc536bcee82',t:'MTc1NjEzMTgyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
