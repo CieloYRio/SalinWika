@@ -326,6 +326,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border: 3px solid #D8BFAA;
+            position: relative;
         }
         
         .vocab-card:hover {
@@ -354,7 +355,7 @@
         }
         
         .play-sound {
-            background: linear-gradient(135deg, #F1C40F, #FFE066);
+            background: linear-gradient(135deg, #E74C3C, #C0392B);
             color: white;
             border: none;
             padding: 10px 20px;
@@ -362,13 +363,60 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
         }
         
         .play-sound:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(241, 196, 15, 0.5);
-            background: linear-gradient(135deg, #FFE066, #F1C40F);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5);
+            background: linear-gradient(135deg, #C0392B, #E74C3C);
+        }
+        
+        .edit-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #1ABC9C;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .edit-btn:hover {
+            background: #16A085;
+            transform: scale(1.1);
+        }
+        
+        .add-word-section {
+            background: linear-gradient(135deg, #2ECC71, rgba(46, 204, 113, 0.1));
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 2px dashed #2ECC71;
+            text-align: center;
+        }
+        
+        .add-word-btn {
+            background: linear-gradient(135deg, #2ECC71, #27AE60);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.3);
+        }
+        
+        .add-word-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.4);
         }
         
         .game-area {
@@ -386,6 +434,56 @@
             text-align: center;
             color: #C19A6B;
             margin-bottom: 25px;
+        }
+        
+        .matching-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .matching-column {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .matching-column h3 {
+            text-align: center;
+            color: #C19A6B;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .match-item {
+            background: white;
+            border: 3px solid #D8BFAA;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .match-item:hover {
+            transform: scale(1.05);
+            border-color: #1ABC9C;
+        }
+        
+        .match-item.selected {
+            border-color: #F1C40F;
+            background: #FFE066;
+            color: white;
+        }
+        
+        .match-item.correct {
+            border-color: #2ECC71;
+            background: #2ECC71;
+            color: white;
         }
         
         .game-options {
@@ -429,6 +527,7 @@
             border-left: 5px solid #1ABC9C;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
         }
         
         .phrase-card:hover {
@@ -476,7 +575,7 @@
         }
         
         .play-song {
-            background: linear-gradient(135deg, #1ABC9C, #4DD0E1);
+            background: linear-gradient(135deg, #E74C3C, #C0392B);
             color: white;
             border: none;
             padding: 15px 30px;
@@ -485,12 +584,12 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(26, 188, 156, 0.4);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
         }
         
         .play-song:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(26, 188, 156, 0.5);
+            box-shadow: 0 15px 40px rgba(231, 76, 60, 0.5);
         }
         
         .parent-guide {
@@ -503,13 +602,13 @@
         }
         
         .parent-guide h3 {
-            color: #2ECC71;
+            color: white;
             margin-bottom: 15px;
             font-size: 1.4rem;
         }
         
         .parent-guide p {
-            color: #C19A6B;
+            color: white;
             line-height: 1.6;
             margin-bottom: 10px;
         }
@@ -579,15 +678,77 @@
         }
         
         .memory-boost h3 {
-            color: #C19A6B;
+            color: white;
             margin-bottom: 15px;
             font-size: 1.4rem;
         }
         
         .memory-boost p {
-            color: #C19A6B;
+            color: white;
             line-height: 1.6;
             margin-bottom: 15px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #FEF9F3, #ffffff);
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .modal h3 {
+            color: #C19A6B;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .modal input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #D8BFAA;
+            border-radius: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .modal-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .save-btn {
+            background: linear-gradient(135deg, #2ECC71, #27AE60);
+            color: white;
+        }
+        
+        .cancel-btn {
+            background: linear-gradient(135deg, #95A5A6, #7F8C8D);
+            color: white;
         }
         
         @media (max-width: 768px) {
@@ -606,6 +767,10 @@
             .lesson-nav {
                 flex-direction: column;
             }
+            
+            .matching-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -614,6 +779,34 @@
         <div class="shape"></div>
         <div class="shape"></div>
         <div class="shape"></div>
+    </div>
+    
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h3>✏️ Edit Word/Phrase</h3>
+            <input type="text" id="editEnglish" placeholder="English word/phrase">
+            <input type="text" id="editFilipino" placeholder="Filipino translation">
+            <input type="text" id="editEmoji" placeholder="Emoji (optional)">
+            <div class="modal-buttons">
+                <button class="modal-btn save-btn" onclick="saveEdit()">💾 Save</button>
+                <button class="modal-btn cancel-btn" onclick="closeModal()">❌ Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add Word Modal -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <h3>➕ Add New Word/Phrase</h3>
+            <input type="text" id="addEnglish" placeholder="English word/phrase">
+            <input type="text" id="addFilipino" placeholder="Filipino translation">
+            <input type="text" id="addEmoji" placeholder="Emoji (optional)">
+            <div class="modal-buttons">
+                <button class="modal-btn save-btn" onclick="addNewWord()">➕ Add</button>
+                <button class="modal-btn cancel-btn" onclick="closeModal()">❌ Cancel</button>
+            </div>
+        </div>
     </div>
     
     <div class="container">
@@ -704,9 +897,17 @@
     <script>
         let currentLesson = 1;
         let currentStep = 1;
+        let currentEditIndex = -1;
+        let currentEditType = '';
+        let matchingGame = {
+            selectedLeft: null,
+            selectedRight: null,
+            matches: 0,
+            total: 0
+        };
         
-        // Lesson data structure
-        const lessons = {
+        // Lesson data structure (now editable)
+        let lessons = {
             1: {
                 title: "Lesson 1: Mga Kulay (Colors)",
                 emoji: "🌈",
@@ -718,11 +919,11 @@
                     { english: "White", filipino: "Puti", emoji: "🥛" }
                 ],
                 phrases: [
-                    { english: "My dress is red.", filipino: "Ang damit ko ay pula." },
-                    { english: "The sea is blue.", filipino: "Ang dagat ay asul." },
-                    { english: "The grass is green.", filipino: "Ang damo ay berde." },
+                    { english: "My dress is red.", filipino: "Pula ang damit ko." },
+                    { english: "The sea is blue.", filipino: "Asul ang dagat." },
+                    { english: "The grass is green.", filipino: "Berde ang damo." },
                     { english: "What color is this?", filipino: "Anong kulay ito?" },
-                    { english: "I like red.", filipino: "Gusto ko ng pula." }
+                    { english: "I like red.", filipino: "Gusto ko ang pula." }
                 ],
                 song: {
                     title: "Color Song",
@@ -885,26 +1086,43 @@
             }
         };
         
-        // Enhanced Audio System with Female Filipino Voice
+        // Enhanced Audio System with Filipino Accent Priority
         function speakText(text, lang = 'tl-PH') {
             if ('speechSynthesis' in window) {
                 speechSynthesis.cancel();
                 
                 const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = lang;
-                utterance.rate = 0.7; // Slower for children
-                utterance.pitch = 1.3; // Higher pitch for female voice
-                utterance.volume = 0.9;
+                utterance.lang = 'tl-PH'; // Filipino language
+                utterance.rate = 0.6; // Even slower for clear pronunciation
+                utterance.pitch = 1.4; // Higher pitch for female voice
+                utterance.volume = 1.0;
                 
-                // Try to select a female voice if available
+                // Prioritize Filipino/Tagalog voices first
                 const voices = speechSynthesis.getVoices();
-                const femaleVoice = voices.find(voice => 
-                    voice.lang.includes('tl') || voice.lang.includes('fil') || 
-                    (voice.name.toLowerCase().includes('female') && voice.lang.includes('en'))
+                let selectedVoice = voices.find(voice => 
+                    voice.lang === 'tl-PH' || voice.lang === 'fil-PH' || voice.lang.includes('tl')
                 );
                 
-                if (femaleVoice) {
-                    utterance.voice = femaleVoice;
+                // If no Filipino voice, try to find Asian English voices (closer accent)
+                if (!selectedVoice) {
+                    selectedVoice = voices.find(voice => 
+                        voice.name.toLowerCase().includes('asia') || 
+                        voice.name.toLowerCase().includes('indian') ||
+                        voice.name.toLowerCase().includes('singapore') ||
+                        (voice.name.toLowerCase().includes('female') && voice.lang.includes('en-IN'))
+                    );
+                }
+                
+                // Last resort: any female voice
+                if (!selectedVoice) {
+                    selectedVoice = voices.find(voice => 
+                        voice.name.toLowerCase().includes('female') || 
+                        voice.name.toLowerCase().includes('woman')
+                    );
+                }
+                
+                if (selectedVoice) {
+                    utterance.voice = selectedVoice;
                 }
                 
                 speechSynthesis.speak(utterance);
@@ -953,9 +1171,17 @@
                 <!-- Step 2: Vocabulary -->
                 <div class="step-content" id="step-2">
                     <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.5rem; color: #C19A6B;">📚 Learn New Words</h2>
-                    <div class="vocabulary-grid">
-                        ${lesson.vocabulary.map(item => `
+                    
+                    <div class="add-word-section">
+                        <h3 style="color: #2ECC71; margin-bottom: 15px;">➕ Add Your Own Words</h3>
+                        <p style="color: #C19A6B; margin-bottom: 20px;">Want to learn more words? Add your own vocabulary!</p>
+                        <button class="add-word-btn" onclick="openAddModal('vocabulary')">➕ Add New Word</button>
+                    </div>
+                    
+                    <div class="vocabulary-grid" id="vocab-grid">
+                        ${lesson.vocabulary.map((item, index) => `
                             <div class="vocab-card" onclick="playVocabSound('${item.filipino}')">
+                                <button class="edit-btn" onclick="editItem('vocabulary', ${index})" title="Edit">✏️</button>
                                 <div class="vocab-emoji">${item.emoji}</div>
                                 <div class="vocab-english">${item.english}</div>
                                 <div class="vocab-filipino">${item.filipino}</div>
@@ -965,21 +1191,36 @@
                     </div>
                 </div>
                 
-                <!-- Step 3: Practice Game -->
+                <!-- Step 3: Matching Game -->
                 <div class="step-content" id="step-3">
                     <div class="game-area">
-                        <div class="game-question" id="game-question">Match the words!</div>
-                        <div class="game-options" id="game-options">
-                            ${lesson.vocabulary.slice(0, 3).map(item => `
-                                <div class="game-option" onclick="selectGameAnswer('${item.filipino}')">
-                                    <div>${item.emoji}</div>
-                                    <div>${item.filipino}</div>
+                        <div class="game-question">🎯 Match the English words with Filipino translations!</div>
+                        <div class="matching-container" id="matching-container">
+                            <div class="matching-column">
+                                <h3>🇺🇸 English</h3>
+                                <div id="english-items">
+                                    ${lesson.vocabulary.slice(0, 4).map((item, index) => `
+                                        <div class="match-item" data-type="english" data-value="${item.english}" onclick="selectMatchItem(this)">
+                                            ${item.emoji} ${item.english}
+                                        </div>
+                                    `).join('')}
                                 </div>
-                            `).join('')}
+                            </div>
+                            <div class="matching-column">
+                                <h3>🇵🇭 Filipino</h3>
+                                <div id="filipino-items">
+                                    ${lesson.vocabulary.slice(0, 4).sort(() => Math.random() - 0.5).map((item, index) => `
+                                        <div class="match-item" data-type="filipino" data-value="${item.filipino}" data-english="${item.english}" onclick="selectMatchItem(this)">
+                                            ${item.filipino}
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
                         </div>
                         <div style="text-align: center; margin-top: 20px;">
                             <div id="game-feedback" style="font-size: 1.5rem; font-weight: 700; margin: 15px 0;"></div>
-                            <div id="game-score" style="color: #C19A6B;">Score: <span id="score">0</span>/5</div>
+                            <div id="game-score" style="color: #C19A6B;">Matches: <span id="score">${matchingGame.matches}</span>/${lesson.vocabulary.slice(0, 4).length}</div>
+                            <button class="practice-button" onclick="resetMatchingGame()" style="margin-top: 15px;">🔄 Reset Game</button>
                         </div>
                     </div>
                 </div>
@@ -994,9 +1235,16 @@
                         <p><strong>Make it fun:</strong> Turn phrase practice into role-playing games or daily conversations.</p>
                     </div>
                     
+                    <div class="add-word-section">
+                        <h3 style="color: #2ECC71; margin-bottom: 15px;">➕ Add Your Own Phrases</h3>
+                        <p style="color: #C19A6B; margin-bottom: 20px;">Add phrases your family uses every day!</p>
+                        <button class="add-word-btn" onclick="openAddModal('phrases')">➕ Add New Phrase</button>
+                    </div>
+                    
                     <div class="phrases-section">
-                        ${lesson.phrases.map(phrase => `
+                        ${lesson.phrases.map((phrase, index) => `
                             <div class="phrase-card" onclick="speakText('${phrase.filipino}')">
+                                <button class="edit-btn" onclick="editItem('phrases', ${index})" title="Edit">✏️</button>
                                 <div class="phrase-english">${phrase.english}</div>
                                 <div class="phrase-filipino">${phrase.filipino}</div>
                                 <button class="play-sound" style="margin-top: 10px;">🔊 Listen</button>
@@ -1044,6 +1292,14 @@
                     </div>
                 </div>
             `;
+            
+            // Initialize matching game
+            matchingGame = {
+                selectedLeft: null,
+                selectedRight: null,
+                matches: 0,
+                total: lesson.vocabulary.slice(0, 4).length
+            };
             
             showStep(1);
         }
@@ -1107,6 +1363,183 @@
             }
         }
         
+        // Matching Game Functions
+        function selectMatchItem(element) {
+            const type = element.dataset.type;
+            const value = element.dataset.value;
+            
+            if (type === 'english') {
+                // Clear previous selection
+                document.querySelectorAll('[data-type="english"]').forEach(item => {
+                    item.classList.remove('selected');
+                });
+                element.classList.add('selected');
+                matchingGame.selectedLeft = element;
+            } else {
+                // Clear previous selection
+                document.querySelectorAll('[data-type="filipino"]').forEach(item => {
+                    item.classList.remove('selected');
+                });
+                element.classList.add('selected');
+                matchingGame.selectedRight = element;
+            }
+            
+            // Check for match
+            if (matchingGame.selectedLeft && matchingGame.selectedRight) {
+                checkMatch();
+            }
+        }
+        
+        function checkMatch() {
+            const englishValue = matchingGame.selectedLeft.dataset.value;
+            const filipinoEnglish = matchingGame.selectedRight.dataset.english;
+            
+            const feedback = document.getElementById('game-feedback');
+            
+            if (englishValue === filipinoEnglish) {
+                // Correct match
+                matchingGame.selectedLeft.classList.add('correct');
+                matchingGame.selectedRight.classList.add('correct');
+                matchingGame.selectedLeft.onclick = null;
+                matchingGame.selectedRight.onclick = null;
+                matchingGame.matches++;
+                
+                feedback.textContent = "🎉 Perfect match!";
+                feedback.style.color = "#2ECC71";
+                
+                // Play the Filipino word
+                speakText(matchingGame.selectedRight.dataset.value);
+                
+                // Update score
+                document.getElementById('score').textContent = matchingGame.matches;
+                
+                if (matchingGame.matches === matchingGame.total) {
+                    setTimeout(() => {
+                        feedback.textContent = "🏆 All matched! Great job!";
+                    }, 1500);
+                }
+            } else {
+                // Incorrect match
+                feedback.textContent = "❌ Try again!";
+                feedback.style.color = "#E74C3C";
+                
+                setTimeout(() => {
+                    matchingGame.selectedLeft.classList.remove('selected');
+                    matchingGame.selectedRight.classList.remove('selected');
+                    feedback.textContent = "";
+                }, 1000);
+            }
+            
+            matchingGame.selectedLeft = null;
+            matchingGame.selectedRight = null;
+        }
+        
+        function resetMatchingGame() {
+            matchingGame.matches = 0;
+            document.getElementById('score').textContent = '0';
+            document.getElementById('game-feedback').textContent = '';
+            
+            // Reset all items
+            document.querySelectorAll('.match-item').forEach(item => {
+                item.classList.remove('selected', 'correct');
+                item.onclick = function() { selectMatchItem(this); };
+            });
+            
+            // Shuffle Filipino items
+            const filipinoContainer = document.getElementById('filipino-items');
+            const items = Array.from(filipinoContainer.children);
+            items.sort(() => Math.random() - 0.5);
+            items.forEach(item => filipinoContainer.appendChild(item));
+        }
+        
+        // Edit and Add Functions
+        function editItem(type, index) {
+            event.stopPropagation();
+            currentEditType = type;
+            currentEditIndex = index;
+            
+            const lesson = lessons[currentLesson];
+            const item = lesson[type][index];
+            
+            document.getElementById('editEnglish').value = item.english;
+            document.getElementById('editFilipino').value = item.filipino;
+            document.getElementById('editEmoji').value = item.emoji || '';
+            
+            document.getElementById('editModal').style.display = 'block';
+        }
+        
+        function openAddModal(type) {
+            currentEditType = type;
+            currentEditIndex = -1;
+            
+            document.getElementById('addEnglish').value = '';
+            document.getElementById('addFilipino').value = '';
+            document.getElementById('addEmoji').value = '';
+            
+            document.getElementById('addModal').style.display = 'block';
+        }
+        
+        function saveEdit() {
+            const english = document.getElementById('editEnglish').value.trim();
+            const filipino = document.getElementById('editFilipino').value.trim();
+            const emoji = document.getElementById('editEmoji').value.trim();
+            
+            if (!english || !filipino) {
+                alert('Please fill in both English and Filipino fields!');
+                return;
+            }
+            
+            const lesson = lessons[currentLesson];
+            lesson[currentEditType][currentEditIndex] = {
+                english: english,
+                filipino: filipino,
+                emoji: emoji || '📝'
+            };
+            
+            closeModal();
+            loadLessonContent();
+            showStep(currentStep);
+        }
+        
+        function addNewWord() {
+            const english = document.getElementById('addEnglish').value.trim();
+            const filipino = document.getElementById('addFilipino').value.trim();
+            const emoji = document.getElementById('addEmoji').value.trim();
+            
+            if (!english || !filipino) {
+                alert('Please fill in both English and Filipino fields!');
+                return;
+            }
+            
+            const lesson = lessons[currentLesson];
+            lesson[currentEditType].push({
+                english: english,
+                filipino: filipino,
+                emoji: emoji || '📝'
+            });
+            
+            closeModal();
+            loadLessonContent();
+            showStep(currentStep);
+        }
+        
+        function closeModal() {
+            document.getElementById('editModal').style.display = 'none';
+            document.getElementById('addModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const editModal = document.getElementById('editModal');
+            const addModal = document.getElementById('addModal');
+            if (event.target === editModal) {
+                editModal.style.display = 'none';
+            }
+            if (event.target === addModal) {
+                addModal.style.display = 'none';
+            }
+        }
+        
         function playIntroAudio() {
             const button = event.target;
             button.textContent = "🔊 Playing...";
@@ -1118,7 +1551,7 @@
             if (speakText(introText, 'en-US')) {
                 setTimeout(() => {
                     button.textContent = "🔊 Listen to Introduction";
-                    button.style.background = "linear-gradient(135deg, #F1C40F, #FFE066)";
+                    button.style.background = "linear-gradient(135deg, #E74C3C, #C0392B)";
                 }, 5000);
             }
         }
@@ -1137,14 +1570,6 @@
             }, 500);
         }
         
-        function selectGameAnswer(answer) {
-            const feedback = document.getElementById('game-feedback');
-            feedback.textContent = "🎉 Great job!";
-            feedback.style.color = "#2ECC71";
-            
-            speakText(answer);
-        }
-        
         function playSong() {
             const button = event.target;
             button.textContent = "🎵 Playing...";
@@ -1156,7 +1581,7 @@
             
             setTimeout(() => {
                 button.textContent = "🎵 Play Song";
-                button.style.background = "linear-gradient(135deg, #1ABC9C, #4DD0E1)";
+                button.style.background = "linear-gradient(135deg, #E74C3C, #C0392B)";
             }, 8000);
         }
         
@@ -1215,5 +1640,5 @@
             };
         }
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974bbfc536bcee82',t:'MTc1NjEzMTgyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974bff68e7041575',t:'MTc1NjEzNDQzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
