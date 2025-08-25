@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FilipinoPal - Complete Filipino Learning App 🇵🇭</title>
+    <title>SalinWika - Learn. Speak. Connect Generations. 🇵🇭</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
         
@@ -787,6 +787,7 @@
             <h3>✏️ Edit Word/Phrase</h3>
             <input type="text" id="editEnglish" placeholder="English word/phrase">
             <input type="text" id="editFilipino" placeholder="Filipino translation">
+            <input type="text" id="editDialect" placeholder="Your dialect translation (optional)">
             <input type="text" id="editEmoji" placeholder="Emoji (optional)">
             <div class="modal-buttons">
                 <button class="modal-btn save-btn" onclick="saveEdit()">💾 Save</button>
@@ -801,6 +802,7 @@
             <h3>➕ Add New Word/Phrase</h3>
             <input type="text" id="addEnglish" placeholder="English word/phrase">
             <input type="text" id="addFilipino" placeholder="Filipino translation">
+            <input type="text" id="addDialect" placeholder="Your dialect translation (optional)">
             <input type="text" id="addEmoji" placeholder="Emoji (optional)">
             <div class="modal-buttons">
                 <button class="modal-btn save-btn" onclick="addNewWord()">➕ Add</button>
@@ -811,8 +813,8 @@
     
     <div class="container">
         <div class="header">
-            <h1>🌟 FilipinoPal Complete 🌟</h1>
-            <p>Master Filipino with 8 Interactive Lessons! 🚀✨</p>
+            <h1>🌟 SalinWika 🌟</h1>
+            <p>Play. Speak. Celebrate Filipino! 🚀✨</p>
         </div>
         
         <div class="lesson-selector">
@@ -905,6 +907,42 @@
             matches: 0,
             total: 0
         };
+        
+        // Autosave and restore functionality
+        function saveToLocalStorage() {
+            try {
+                const saveData = {
+                    lessons: lessons,
+                    currentLesson: currentLesson,
+                    currentStep: currentStep,
+                    timestamp: new Date().toISOString()
+                };
+                localStorage.setItem('salinwika_data', JSON.stringify(saveData));
+                console.log('✅ Data saved automatically!');
+            } catch (error) {
+                console.error('❌ Failed to save data:', error);
+            }
+        }
+        
+        function loadFromLocalStorage() {
+            try {
+                const savedData = localStorage.getItem('salinwika_data');
+                if (savedData) {
+                    const data = JSON.parse(savedData);
+                    lessons = data.lessons || lessons;
+                    currentLesson = data.currentLesson || 1;
+                    currentStep = data.currentStep || 1;
+                    console.log('✅ Data restored from previous session!');
+                    return true;
+                }
+            } catch (error) {
+                console.error('❌ Failed to load saved data:', error);
+            }
+            return false;
+        }
+        
+        // Auto-save every 30 seconds
+        setInterval(saveToLocalStorage, 30000);
         
         // Lesson data structure (now editable)
         let lessons = {
@@ -1148,6 +1186,7 @@
             loadLessonContent();
             updateProgress();
             updateNavigationButtons();
+            saveToLocalStorage(); // Auto-save when lesson changes
         }
         
         function loadLessonContent() {
@@ -1160,9 +1199,10 @@
                     <div class="intro-section">
                         <div class="intro-emoji">${lesson.emoji}</div>
                         <div class="intro-text">
-                            <strong>Welcome to ${lesson.title}!</strong><br>
-                            Let's learn together and have fun!<br>
-                            Click the button below to hear the introduction.
+                            <strong>Hi there! Welcome to ${lesson.title}! 🎉</strong><br>
+                            Let's have fun learning Filipino words and stories! 🌞<br>
+                            Tap, play, and speak your way through games. Every word you learn helps you connect with your family and culture! 📚<br>
+                            Ready to start? Let's go! 🚀
                         </div>
                         <button class="play-sound" onclick="playIntroAudio()">🔊 Listen to Introduction</button>
                     </div>
@@ -1185,6 +1225,7 @@
                                 <div class="vocab-emoji">${item.emoji}</div>
                                 <div class="vocab-english">${item.english}</div>
                                 <div class="vocab-filipino">${item.filipino}</div>
+                                ${item.dialect ? `<div class="vocab-dialect" style="font-size: 0.9rem; color: #E74C3C; font-weight: 500; margin: 5px 0;">${item.dialect}</div>` : ''}
                                 <button class="play-sound">🔊 Play</button>
                             </div>
                         `).join('')}
@@ -1247,6 +1288,7 @@
                                 <button class="edit-btn" onclick="editItem('phrases', ${index})" title="Edit">✏️</button>
                                 <div class="phrase-english">${phrase.english}</div>
                                 <div class="phrase-filipino">${phrase.filipino}</div>
+                                ${phrase.dialect ? `<div class="phrase-dialect" style="font-size: 1rem; color: #E74C3C; font-weight: 500; margin: 5px 0; font-style: italic;">${phrase.dialect}</div>` : ''}
                                 <button class="play-sound" style="margin-top: 10px;">🔊 Listen</button>
                             </div>
                         `).join('')}
@@ -1404,7 +1446,13 @@
                 matchingGame.selectedRight.onclick = null;
                 matchingGame.matches++;
                 
-                feedback.textContent = "🎉 Perfect match!";
+                const encouragingMessages = [
+                    "🎉 You got it! ⭐⭐⭐",
+                    "🌟 Wow! You just spoke like a Filipino hero!",
+                    "🎯 Perfect match! You're amazing!",
+                    "✨ Great job! Keep going!"
+                ];
+                feedback.textContent = encouragingMessages[Math.floor(Math.random() * encouragingMessages.length)];
                 feedback.style.color = "#2ECC71";
                 
                 // Play the Filipino word
@@ -1420,7 +1468,7 @@
                 }
             } else {
                 // Incorrect match
-                feedback.textContent = "❌ Try again!";
+                feedback.textContent = "🤗 Try again, you're doing great!";
                 feedback.style.color = "#E74C3C";
                 
                 setTimeout(() => {
@@ -1463,6 +1511,7 @@
             
             document.getElementById('editEnglish').value = item.english;
             document.getElementById('editFilipino').value = item.filipino;
+            document.getElementById('editDialect').value = item.dialect || '';
             document.getElementById('editEmoji').value = item.emoji || '';
             
             document.getElementById('editModal').style.display = 'block';
@@ -1474,6 +1523,7 @@
             
             document.getElementById('addEnglish').value = '';
             document.getElementById('addFilipino').value = '';
+            document.getElementById('addDialect').value = '';
             document.getElementById('addEmoji').value = '';
             
             document.getElementById('addModal').style.display = 'block';
@@ -1482,6 +1532,7 @@
         function saveEdit() {
             const english = document.getElementById('editEnglish').value.trim();
             const filipino = document.getElementById('editFilipino').value.trim();
+            const dialect = document.getElementById('editDialect').value.trim();
             const emoji = document.getElementById('editEmoji').value.trim();
             
             if (!english || !filipino) {
@@ -1493,17 +1544,20 @@
             lesson[currentEditType][currentEditIndex] = {
                 english: english,
                 filipino: filipino,
+                dialect: dialect || '',
                 emoji: emoji || '📝'
             };
             
             closeModal();
             loadLessonContent();
             showStep(currentStep);
+            saveToLocalStorage(); // Auto-save after edit
         }
         
         function addNewWord() {
             const english = document.getElementById('addEnglish').value.trim();
             const filipino = document.getElementById('addFilipino').value.trim();
+            const dialect = document.getElementById('addDialect').value.trim();
             const emoji = document.getElementById('addEmoji').value.trim();
             
             if (!english || !filipino) {
@@ -1515,12 +1569,14 @@
             lesson[currentEditType].push({
                 english: english,
                 filipino: filipino,
+                dialect: dialect || '',
                 emoji: emoji || '📝'
             });
             
             closeModal();
             loadLessonContent();
             showStep(currentStep);
+            saveToLocalStorage(); // Auto-save after adding
         }
         
         function closeModal() {
@@ -1629,9 +1685,20 @@
         }
         
         // Initialize the app
-        loadLessonContent();
-        updateProgress();
-        updateNavigationButtons();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Try to restore previous session
+            const restored = loadFromLocalStorage();
+            if (restored) {
+                // Update UI to reflect restored state
+                selectLesson(currentLesson);
+                showStep(currentStep);
+                console.log('🎉 Welcome back! Your progress has been restored.');
+            } else {
+                loadLessonContent();
+                updateProgress();
+                updateNavigationButtons();
+            }
+        });
         
         // Load voices when available
         if ('speechSynthesis' in window) {
@@ -1640,5 +1707,5 @@
             };
         }
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974bff68e7041575',t:'MTc1NjEzNDQzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974c4ddc2581ed93',t:'MTc1NjEzNzY0NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
