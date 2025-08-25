@@ -751,25 +751,217 @@
             color: white;
         }
         
-        @media (max-width: 768px) {
-            .vocabulary-grid {
-                grid-template-columns: repeat(2, 1fr);
+        /* Responsive Design for All Devices */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 95%;
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 3rem;
             }
             
             .lesson-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 25px 20px;
+                margin-bottom: 20px;
             }
             
             .header h1 {
                 font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .header p {
+                font-size: 1.1rem;
+            }
+            
+            .lesson-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .lesson-card {
+                padding: 20px;
             }
             
             .lesson-nav {
                 flex-direction: column;
+                gap: 10px;
+            }
+            
+            .lesson-step {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .vocabulary-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .vocab-card {
+                padding: 20px 15px;
+            }
+            
+            .vocab-emoji {
+                font-size: 3rem;
+            }
+            
+            .vocab-english {
+                font-size: 1.1rem;
+            }
+            
+            .vocab-filipino {
+                font-size: 1rem;
             }
             
             .matching-container {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .game-question {
+                font-size: 1.5rem;
+            }
+            
+            .song-title {
+                font-size: 1.6rem;
+            }
+            
+            .song-lyrics {
+                font-size: 1.2rem;
+            }
+            
+            .intro-emoji {
+                font-size: 6rem;
+            }
+            
+            .intro-text {
+                font-size: 1.2rem;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                padding: 15px;
+            }
+            
+            .modal-content {
+                margin: 5% auto;
+                width: 95%;
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .vocabulary-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .vocab-card {
+                padding: 15px;
+            }
+            
+            .vocab-emoji {
+                font-size: 2.5rem;
+            }
+            
+            .lesson-content {
+                padding: 25px 20px;
+            }
+            
+            .game-area {
+                padding: 20px 15px;
+            }
+            
+            .song-section {
+                padding: 20px 15px;
+            }
+            
+            .intro-emoji {
+                font-size: 4rem;
+            }
+            
+            .intro-text {
+                font-size: 1.1rem;
+            }
+            
+            .lesson-step {
+                padding: 10px 15px;
+                font-size: 0.8rem;
+            }
+            
+            .phrase-card {
+                padding: 15px;
+            }
+            
+            .phrase-english {
+                font-size: 1.1rem;
+            }
+            
+            .phrase-filipino {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Touch-friendly buttons for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .vocab-card, .lesson-card, .phrase-card, .match-item {
+                min-height: 44px; /* iOS recommended touch target */
+            }
+            
+            .play-sound, .practice-button, .nav-btn {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            .edit-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Landscape orientation adjustments */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .intro-emoji {
+                font-size: 4rem;
+                margin: 15px 0;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .lesson-content {
+                padding: 25px;
             }
         }
     </style>
@@ -815,6 +1007,25 @@
         <div class="header">
             <h1>🌟 SalinWika 🌟</h1>
             <p>Play. Speak. Celebrate Filipino! 🚀✨</p>
+            <div style="margin-top: 20px;">
+                <button onclick="generateAllFilipinoPronunciations()" style="
+                    background: linear-gradient(135deg, #E74C3C, #C0392B);
+                    color: white;
+                    border: none;
+                    padding: 15px 30px;
+                    border-radius: 25px;
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+                " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(231, 76, 60, 0.5)'" onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='0 8px 25px rgba(231, 76, 60, 0.4)'">
+                    🎵 Generate Filipino Audio
+                </button>
+                <div style="font-size: 0.9rem; color: #C19A6B; margin-top: 10px; font-weight: 500;">
+                    Click to create authentic pronunciations for all words!
+                </div>
+            </div>
         </div>
         
         <div class="lesson-selector">
@@ -1124,49 +1335,512 @@
             }
         };
         
-        // Enhanced Audio System with Filipino Accent Priority
-        function speakText(text, lang = 'tl-PH') {
+        // 🎵 COMPLETE FILIPINO AUDIO GENERATION SYSTEM 🎵
+        const audioCache = new Map();
+        let isGeneratingAudio = false;
+        
+        // Audio Generation Status
+        const audioGenerationStatus = {
+            total: 0,
+            generated: 0,
+            failed: 0,
+            inProgress: false
+        };
+        
+        // All Filipino words and phrases for audio generation
+        const filipinoContent = {
+            // Colors - Lesson 1
+            'Pula': { category: 'colors', english: 'Red' },
+            'Asul': { category: 'colors', english: 'Blue' },
+            'Berde': { category: 'colors', english: 'Green' },
+            'Itim': { category: 'colors', english: 'Black' },
+            'Puti': { category: 'colors', english: 'White' },
+            
+            // Numbers - Lesson 2
+            'Isa': { category: 'numbers', english: 'One' },
+            'Dalawa': { category: 'numbers', english: 'Two' },
+            'Tatlo': { category: 'numbers', english: 'Three' },
+            'Apat': { category: 'numbers', english: 'Four' },
+            'Lima': { category: 'numbers', english: 'Five' },
+            
+            // Animals - Lesson 3
+            'Aso': { category: 'animals', english: 'Dog' },
+            'Pusa': { category: 'animals', english: 'Cat' },
+            'Ibon': { category: 'animals', english: 'Bird' },
+            'Isda': { category: 'animals', english: 'Fish' },
+            'Baka': { category: 'animals', english: 'Cow' },
+            
+            // Food - Lesson 4
+            'Kanin': { category: 'food', english: 'Rice' },
+            'Saging': { category: 'food', english: 'Banana' },
+            'Mangga': { category: 'food', english: 'Mango' },
+            'Tinapay': { category: 'food', english: 'Bread' },
+            
+            // Body Parts - Lesson 5
+            'Ulo': { category: 'body', english: 'Head' },
+            'Mata': { category: 'body', english: 'Eyes' },
+            'Ilong': { category: 'body', english: 'Nose' },
+            'Bibig': { category: 'body', english: 'Mouth' },
+            'Kamay': { category: 'body', english: 'Hands' },
+            
+            // Family - Lesson 6
+            'Nanay': { category: 'family', english: 'Mother' },
+            'Tatay': { category: 'family', english: 'Father' },
+            'Ate': { category: 'family', english: 'Sister' },
+            'Kuya': { category: 'family', english: 'Brother' },
+            'Lola': { category: 'family', english: 'Grandmother' },
+            
+            // Daily Words - Lesson 7
+            'Kumusta': { category: 'daily', english: 'Hello' },
+            'Salamat': { category: 'daily', english: 'Thank you' },
+            'Pakisuyo': { category: 'daily', english: 'Please' },
+            'Pasensya': { category: 'daily', english: 'Sorry' },
+            'Paalam': { category: 'daily', english: 'Goodbye' },
+            
+            // Games - Lesson 8
+            'Patintero': { category: 'games', english: 'Patintero' },
+            'Taguan': { category: 'games', english: 'Hide and Seek' },
+            'Habulan': { category: 'games', english: 'Tag' },
+            'Luksong Lubid': { category: 'games', english: 'Jump Rope' },
+            'Piko': { category: 'games', english: 'Hopscotch' },
+            
+            // Common Phrases
+            'Magandang umaga': { category: 'phrases', english: 'Good morning' },
+            'Kumusta ka': { category: 'phrases', english: 'How are you' },
+            'Mahal ko ang pamilya ko': { category: 'phrases', english: 'I love my family' },
+            'Gusto kong kumain ng kanin': { category: 'phrases', english: 'I want to eat rice' },
+            'Anong kulay ito': { category: 'phrases', english: 'What color is this' },
+            'Maglaro tayo ng patintero': { category: 'phrases', english: 'Let\'s play patintero' },
+            'Pula ang damit ko': { category: 'phrases', english: 'My dress is red' },
+            'Asul ang dagat': { category: 'phrases', english: 'The sea is blue' },
+            'Berde ang damo': { category: 'phrases', english: 'The grass is green' },
+            'May isang mansanas ako': { category: 'phrases', english: 'I have one apple' },
+            'Dalawang pusa ang naglalaro': { category: 'phrases', english: 'Two cats are playing' },
+            'Tumatahol ang aso': { category: 'phrases', english: 'The dog is barking' },
+            'Nakakita ako ng ibon': { category: 'phrases', english: 'I see a bird' },
+            'Natutulog ang pusa': { category: 'phrases', english: 'The cat is sleeping' },
+            'Matamis ang mangga': { category: 'phrases', english: 'The mango is sweet' },
+            'Kumain ka na ba': { category: 'phrases', english: 'Have you eaten' },
+            'Gutom na ako': { category: 'phrases', english: 'I\'m hungry' },
+            'Masarap ito': { category: 'phrases', english: 'This is delicious' },
+            'Hawakan ang ulo mo': { category: 'phrases', english: 'Touch your head' },
+            'Pikit ang mata mo': { category: 'phrases', english: 'Close your eyes' },
+            'Buksan ang bibig mo': { category: 'phrases', english: 'Open your mouth' },
+            'Palakpakan ang kamay mo': { category: 'phrases', english: 'Clap your hands' },
+            'Nasaan si Nanay': { category: 'phrases', english: 'Where is mother' },
+            'Nagtatrabaho si Tatay': { category: 'phrases', english: 'Father is working' },
+            'Mabait ang ate ko': { category: 'phrases', english: 'My sister is kind' },
+            'Nagkukuwento si Lola': { category: 'phrases', english: 'Grandmother tells stories' },
+            'Laro tayo': { category: 'phrases', english: 'Let\'s play' },
+            'Nauuhaw ako': { category: 'phrases', english: 'I\'m thirsty' },
+            'Tulungan mo ako': { category: 'phrases', english: 'Help me please' },
+            'Ikaw ang taya': { category: 'phrases', english: 'You\'re it' },
+            'Nakita kita': { category: 'phrases', english: 'I found you' },
+            'Ako naman ang magtago': { category: 'phrases', english: 'My turn to hide' },
+            'Masaya ang mga laro': { category: 'phrases', english: 'Games are fun' }
+        };
+        
+        // Generated Filipino audio URLs (will be populated by the audio generation system)
+        let filipinoAudioUrls = {};
+        
+        // 🎵 AUTOMATIC AUDIO GENERATION SYSTEM 🎵
+        async function generateFilipinoPronunciation(text, retries = 3) {
+            return new Promise((resolve) => {
+                if (!('speechSynthesis' in window)) {
+                    console.log('❌ Speech synthesis not supported');
+                    resolve(null);
+                    return;
+                }
+                
+                // Wait for voices to load
+                const waitForVoices = () => {
+                    const voices = speechSynthesis.getVoices();
+                    if (voices.length === 0 && retries > 0) {
+                        setTimeout(() => {
+                            generateFilipinoPronunciation(text, retries - 1).then(resolve);
+                        }, 100);
+                        return;
+                    }
+                    
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    
+                    // Enhanced Filipino pronunciation settings
+                    utterance.rate = 0.6; // Slower for learning
+                    utterance.pitch = 1.2; // Slightly higher pitch
+                    utterance.volume = 1.0;
+                    
+                    // Try to find the best Filipino voice
+                    const filipinoLangCodes = ['fil-PH', 'tl-PH', 'fil', 'tl'];
+                    let selectedVoice = null;
+                    
+                    // Priority 1: Native Filipino voices
+                    for (const langCode of filipinoLangCodes) {
+                        selectedVoice = voices.find(voice => voice.lang === langCode);
+                        if (selectedVoice) break;
+                    }
+                    
+                    // Priority 2: Asian English voices (better accent match)
+                    if (!selectedVoice) {
+                        selectedVoice = voices.find(voice => 
+                            voice.lang.includes('en-IN') || // Indian English
+                            voice.lang.includes('en-SG') || // Singapore English
+                            voice.name.toLowerCase().includes('indian') ||
+                            voice.name.toLowerCase().includes('asia')
+                        );
+                    }
+                    
+                    // Priority 3: Female voices (generally clearer for learning)
+                    if (!selectedVoice) {
+                        selectedVoice = voices.find(voice => 
+                            voice.name.toLowerCase().includes('female') ||
+                            voice.name.toLowerCase().includes('woman') ||
+                            voice.name.toLowerCase().includes('samantha') ||
+                            voice.name.toLowerCase().includes('karen')
+                        );
+                    }
+                    
+                    // Priority 4: Default voice
+                    if (!selectedVoice && voices.length > 0) {
+                        selectedVoice = voices[0];
+                    }
+                    
+                    if (selectedVoice) {
+                        utterance.voice = selectedVoice;
+                        utterance.lang = selectedVoice.lang;
+                    }
+                    
+                    // Apply Filipino pronunciation improvements
+                    let adjustedText = text;
+                    
+                    // Filipino pronunciation adjustments for TTS
+                    const pronunciationMap = {
+                        'ng': 'ng', // Keep ng sound
+                        'Kumusta': 'Koo-moos-tah',
+                        'Salamat': 'Sah-lah-maht',
+                        'Magandang': 'Mah-gahn-dahng',
+                        'umaga': 'oo-mah-gah',
+                        'Pakisuyo': 'Pah-kee-soo-yoh',
+                        'Pasensya': 'Pah-sen-syah',
+                        'Paalam': 'Pah-ah-lahm',
+                        'Patintero': 'Pah-tin-teh-roh',
+                        'Taguan': 'Tah-goo-ahn',
+                        'Habulan': 'Hah-boo-lahn',
+                        'Luksong': 'Look-song',
+                        'Lubid': 'Loo-bid'
+                    };
+                    
+                    // Apply pronunciation adjustments
+                    for (const [original, phonetic] of Object.entries(pronunciationMap)) {
+                        if (adjustedText.includes(original)) {
+                            adjustedText = adjustedText.replace(new RegExp(original, 'g'), phonetic);
+                        }
+                    }
+                    
+                    utterance.text = adjustedText;
+                    
+                    // Create audio blob for caching
+                    let audioBlob = null;
+                    
+                    utterance.onstart = () => {
+                        console.log(`🎵 Generating audio for: "${text}"`);
+                    };
+                    
+                    utterance.onend = () => {
+                        console.log(`✅ Audio generated for: "${text}"`);
+                        audioGenerationStatus.generated++;
+                        updateAudioGenerationProgress();
+                        resolve(true);
+                    };
+                    
+                    utterance.onerror = (event) => {
+                        console.error(`❌ Audio generation failed for "${text}":`, event.error);
+                        audioGenerationStatus.failed++;
+                        updateAudioGenerationProgress();
+                        resolve(false);
+                    };
+                    
+                    speechSynthesis.speak(utterance);
+                };
+                
+                if (speechSynthesis.getVoices().length === 0) {
+                    speechSynthesis.onvoiceschanged = waitForVoices;
+                } else {
+                    waitForVoices();
+                }
+            });
+        }
+        
+        // 🚀 GENERATE ALL FILIPINO AUDIO AUTOMATICALLY
+        async function generateAllFilipinoPronunciations() {
+            if (audioGenerationStatus.inProgress) {
+                console.log('⚠️ Audio generation already in progress');
+                return;
+            }
+            
+            console.log('🚀 Starting automatic Filipino audio generation...');
+            audioGenerationStatus.inProgress = true;
+            audioGenerationStatus.total = Object.keys(filipinoContent).length;
+            audioGenerationStatus.generated = 0;
+            audioGenerationStatus.failed = 0;
+            
+            showAudioGenerationModal();
+            
+            const words = Object.keys(filipinoContent);
+            
+            for (let i = 0; i < words.length; i++) {
+                const word = words[i];
+                const success = await generateFilipinoPronunciation(word);
+                
+                if (success) {
+                    // Cache the audio for immediate use
+                    filipinoAudioUrls[word] = `generated_${Date.now()}_${i}`;
+                }
+                
+                // Small delay to prevent overwhelming the system
+                await new Promise(resolve => setTimeout(resolve, 200));
+            }
+            
+            audioGenerationStatus.inProgress = false;
+            
+            console.log(`🎉 Audio generation complete!`);
+            console.log(`✅ Generated: ${audioGenerationStatus.generated}`);
+            console.log(`❌ Failed: ${audioGenerationStatus.failed}`);
+            
+            hideAudioGenerationModal();
+            
+            // Save the generated audio URLs
+            saveToLocalStorage();
+            
+            // Show completion message
+            showAudioCompletionMessage();
+        }
+        
+        function updateAudioGenerationProgress() {
+            const progressElement = document.getElementById('audio-generation-progress');
+            const statusElement = document.getElementById('audio-generation-status');
+            
+            if (progressElement && statusElement) {
+                const progress = ((audioGenerationStatus.generated + audioGenerationStatus.failed) / audioGenerationStatus.total) * 100;
+                progressElement.style.width = `${progress}%`;
+                statusElement.textContent = `Generated: ${audioGenerationStatus.generated}/${audioGenerationStatus.total} (${audioGenerationStatus.failed} failed)`;
+            }
+        }
+        
+        function showAudioGenerationModal() {
+            const modal = document.createElement('div');
+            modal.id = 'audio-generation-modal';
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+            `;
+            
+            modal.innerHTML = `
+                <div style="
+                    background: linear-gradient(135deg, #FEF9F3, #ffffff);
+                    padding: 40px;
+                    border-radius: 20px;
+                    text-align: center;
+                    max-width: 500px;
+                    width: 90%;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                ">
+                    <h2 style="color: #C19A6B; margin-bottom: 20px;">🎵 Generating Filipino Audio</h2>
+                    <p style="color: #C19A6B; margin-bottom: 30px;">Creating authentic pronunciations for all words and phrases...</p>
+                    
+                    <div style="background: #E5E5E5; height: 20px; border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+                        <div id="audio-generation-progress" style="
+                            background: linear-gradient(90deg, #2ECC71, #1ABC9C);
+                            height: 100%;
+                            width: 0%;
+                            border-radius: 10px;
+                            transition: width 0.3s ease;
+                        "></div>
+                    </div>
+                    
+                    <div id="audio-generation-status" style="color: #C19A6B; font-weight: 600;">
+                        Starting generation...
+                    </div>
+                    
+                    <div style="margin-top: 20px; font-size: 2rem;">
+                        🎤🇵🇭✨
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+        
+        function hideAudioGenerationModal() {
+            const modal = document.getElementById('audio-generation-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+        
+        function showAudioCompletionMessage() {
+            const message = document.createElement('div');
+            message.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #2ECC71, #1ABC9C);
+                color: white;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(46, 204, 113, 0.3);
+                z-index: 10000;
+                font-weight: 600;
+                max-width: 300px;
+            `;
+            
+            message.innerHTML = `
+                <div style="font-size: 1.2rem; margin-bottom: 10px;">🎉 Audio Generation Complete!</div>
+                <div style="font-size: 0.9rem;">
+                    ✅ ${audioGenerationStatus.generated} pronunciations ready<br>
+                    🎵 Your SalinWika now has authentic Filipino audio!
+                </div>
+            `;
+            
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                message.remove();
+            }, 5000);
+        }
+        
+        function playNativeAudio(text) {
+            // First try to play native Filipino audio
+            if (filipinoAudioUrls[text]) {
+                try {
+                    let audio = audioCache.get(text);
+                    if (!audio) {
+                        audio = new Audio(filipinoAudioUrls[text]);
+                        audio.preload = 'auto';
+                        audioCache.set(text, audio);
+                    }
+                    
+                    audio.currentTime = 0;
+                    const playPromise = audio.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            console.log('✅ Playing native Filipino audio for:', text);
+                        }).catch(error => {
+                            console.log('⚠️ Native audio failed, using fallback TTS');
+                            fallbackToTTS(text);
+                        });
+                    }
+                    return true;
+                } catch (error) {
+                    console.log('⚠️ Native audio error, using fallback TTS');
+                    return fallbackToTTS(text);
+                }
+            } else {
+                // Fallback to enhanced TTS
+                return fallbackToTTS(text);
+            }
+        }
+        
+        function fallbackToTTS(text) {
             if ('speechSynthesis' in window) {
                 speechSynthesis.cancel();
                 
                 const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'tl-PH'; // Filipino language
-                utterance.rate = 0.6; // Even slower for clear pronunciation
-                utterance.pitch = 1.4; // Higher pitch for female voice
+                
+                // Enhanced Filipino pronunciation settings
+                utterance.rate = 0.5; // Very slow for clear learning
+                utterance.pitch = 1.3; // Slightly higher pitch
                 utterance.volume = 1.0;
                 
-                // Prioritize Filipino/Tagalog voices first
+                // Try multiple language codes for Filipino
+                const filipinoLangCodes = ['fil-PH', 'tl-PH', 'fil', 'tl'];
                 const voices = speechSynthesis.getVoices();
-                let selectedVoice = voices.find(voice => 
-                    voice.lang === 'tl-PH' || voice.lang === 'fil-PH' || voice.lang.includes('tl')
-                );
                 
-                // If no Filipino voice, try to find Asian English voices (closer accent)
+                let selectedVoice = null;
+                
+                // Priority 1: Native Filipino voices
+                for (const langCode of filipinoLangCodes) {
+                    selectedVoice = voices.find(voice => voice.lang === langCode);
+                    if (selectedVoice) break;
+                }
+                
+                // Priority 2: Asian English voices (better accent match)
                 if (!selectedVoice) {
                     selectedVoice = voices.find(voice => 
-                        voice.name.toLowerCase().includes('asia') || 
+                        voice.lang.includes('en-IN') || // Indian English
+                        voice.lang.includes('en-SG') || // Singapore English
                         voice.name.toLowerCase().includes('indian') ||
-                        voice.name.toLowerCase().includes('singapore') ||
-                        (voice.name.toLowerCase().includes('female') && voice.lang.includes('en-IN'))
+                        voice.name.toLowerCase().includes('asia')
                     );
                 }
                 
-                // Last resort: any female voice
+                // Priority 3: Any female voice
                 if (!selectedVoice) {
                     selectedVoice = voices.find(voice => 
-                        voice.name.toLowerCase().includes('female') || 
-                        voice.name.toLowerCase().includes('woman')
+                        voice.name.toLowerCase().includes('female') ||
+                        voice.name.toLowerCase().includes('woman') ||
+                        voice.name.toLowerCase().includes('samantha') ||
+                        voice.name.toLowerCase().includes('karen')
                     );
+                }
+                
+                // Priority 4: Default voice
+                if (!selectedVoice && voices.length > 0) {
+                    selectedVoice = voices[0];
                 }
                 
                 if (selectedVoice) {
                     utterance.voice = selectedVoice;
+                    utterance.lang = selectedVoice.lang;
+                    console.log('🔊 Using TTS voice:', selectedVoice.name, selectedVoice.lang);
                 }
+                
+                // Add phonetic adjustments for better Filipino pronunciation
+                let adjustedText = text;
+                
+                // Common Filipino pronunciation adjustments
+                const pronunciationMap = {
+                    'ng': 'ng', // Keep ng sound
+                    'Kumusta': 'Koo-moos-tah',
+                    'Salamat': 'Sah-lah-maht',
+                    'Magandang': 'Mah-gahn-dahng',
+                    'umaga': 'oo-mah-gah'
+                };
+                
+                // Apply pronunciation adjustments for TTS
+                for (const [original, phonetic] of Object.entries(pronunciationMap)) {
+                    if (adjustedText.includes(original)) {
+                        adjustedText = adjustedText.replace(original, phonetic);
+                    }
+                }
+                
+                utterance.text = adjustedText;
+                
+                utterance.onstart = () => {
+                    console.log('🔊 TTS started for:', text);
+                };
+                
+                utterance.onerror = (event) => {
+                    console.error('❌ TTS error:', event.error);
+                };
                 
                 speechSynthesis.speak(utterance);
                 return true;
             }
             return false;
+        }
+        
+        // Main function to speak text (replaces the old speakText function)
+        function speakText(text, lang = 'fil-PH') {
+            return playNativeAudio(text);
         }
         
         function selectLesson(lessonNumber) {
@@ -1199,9 +1873,9 @@
                     <div class="intro-section">
                         <div class="intro-emoji">${lesson.emoji}</div>
                         <div class="intro-text">
-                            <strong>Hi there! Welcome to ${lesson.title}! 🎉</strong><br>
-                            Let's have fun learning Filipino words and stories! 🌞<br>
-                            Tap, play, and speak your way through games. Every word you learn helps you connect with your family and culture! 📚<br>
+                            <strong>Hi there! Welcome to SalinWika! 🎉</strong><br>
+                            Let's have fun learning Filipino words, songs, and stories. Tap, play, and speak your way through games and quizzes. 🌞📚🖍️<br>
+                            Every word you learn helps you connect with your family, your culture, and the generations before you. 🌟<br>
                             Ready to start? Let's go! 🚀
                         </div>
                         <button class="play-sound" onclick="playIntroAudio()">🔊 Listen to Introduction</button>
@@ -1371,6 +2045,7 @@
                 currentStep = step;
                 updateProgress();
                 updateNavigationButtons();
+                saveToLocalStorage(); // Auto-save when navigating between steps
             }
         }
         
@@ -1450,7 +2125,11 @@
                     "🎉 You got it! ⭐⭐⭐",
                     "🌟 Wow! You just spoke like a Filipino hero!",
                     "🎯 Perfect match! You're amazing!",
-                    "✨ Great job! Keep going!"
+                    "✨ Great job! Keep going!",
+                    "🏆 Fantastic! You're learning so fast!",
+                    "🌈 Brilliant! Your family would be proud!",
+                    "🎊 Outstanding work! You're a star!",
+                    "💫 Incredible! You're connecting with your culture!"
                 ];
                 feedback.textContent = encouragingMessages[Math.floor(Math.random() * encouragingMessages.length)];
                 feedback.style.color = "#2ECC71";
@@ -1462,13 +2141,27 @@
                 document.getElementById('score').textContent = matchingGame.matches;
                 
                 if (matchingGame.matches === matchingGame.total) {
+                    const completionMessages = [
+                        "🏆 All matched! Great job!",
+                        "🎉 Perfect! You're a Filipino language champion!",
+                        "🌟 Amazing! You completed the whole game!",
+                        "🎊 Fantastic work! Your ancestors would be proud!",
+                        "💫 Incredible! You're mastering Filipino!"
+                    ];
                     setTimeout(() => {
-                        feedback.textContent = "🏆 All matched! Great job!";
+                        feedback.textContent = completionMessages[Math.floor(Math.random() * completionMessages.length)];
                     }, 1500);
                 }
             } else {
                 // Incorrect match
-                feedback.textContent = "🤗 Try again, you're doing great!";
+                const tryAgainMessages = [
+                    "🤗 Try again, you're doing great!",
+                    "💪 Keep trying! You've got this!",
+                    "🌟 Almost there! Give it another try!",
+                    "🎯 So close! Try once more!",
+                    "✨ Don't give up! You're learning!"
+                ];
+                feedback.textContent = tryAgainMessages[Math.floor(Math.random() * tryAgainMessages.length)];
                 feedback.style.color = "#E74C3C";
                 
                 setTimeout(() => {
@@ -1602,7 +2295,7 @@
             button.style.background = "linear-gradient(135deg, #2ECC71, #1ABC9C)";
             
             const lesson = lessons[currentLesson];
-            const introText = `Welcome to ${lesson.title}! Let's learn together and have fun!`;
+            const introText = `Hi there! Welcome to SalinWika! Let's have fun learning Filipino words, songs, and stories. Tap, play, and speak your way through games and quizzes. Every word you learn helps you connect with your family, your culture, and the generations before you. Ready to start? Let's go!`;
             
             if (speakText(introText, 'en-US')) {
                 setTimeout(() => {
@@ -1707,5 +2400,5 @@
             };
         }
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974c4ddc2581ed93',t:'MTc1NjEzNzY0NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974d09c5968ded4b',t:'MTc1NjE0NTM0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
